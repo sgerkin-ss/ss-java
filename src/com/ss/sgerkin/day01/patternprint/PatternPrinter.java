@@ -1,4 +1,4 @@
-package com.ss.sgerkin.patternprint;
+package com.ss.sgerkin.day01.patternprint;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;

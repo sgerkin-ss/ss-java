@@ -1,4 +1,4 @@
-package com.ss.sgerkin.randomguess;
+package com.ss.sgerkin.day01.randomguess;
 
 import java.util.Random;
 import java.util.Scanner;
