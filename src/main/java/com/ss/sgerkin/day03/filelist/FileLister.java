@@ -1,8 +1,10 @@
 package com.ss.sgerkin.day03.filelist;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -11,22 +13,20 @@ import java.util.stream.Collectors;
 public class FileLister {
 
   /**
-   * Creates a string of a directory given a filepath, with indentation indicating an additional
-   * level of structure.
+   * Creates a list of strings all contents from a given path.
+   *
+   * Directories will be denoted by (D).
+   * Files will be denoted by (F).
    *
    * @param path a file directory to walk.
-   * @return a string separated by line breaks for each item found during the walk, and indentation
-   * indicating the level of the item.
+   * @return a list of all items found during the walk.
    */
-  public static String listFiles(String path) {
+  public static List<String> listFiles(String path) {
     try {
       return Files.walk(Paths.get(path))
-          .map(p -> {
-            var index = p.getNameCount() - 1;
-            var name = p.getName(index);
-            return "  ".repeat(index) + name;
-          })
-          .collect(Collectors.joining("\n"));
+          .map(p -> p.getName(p.getNameCount() - 1).toString()
+              + (new File(p.toString()).isDirectory() ? " (D)" : " (F)"))
+          .collect(Collectors.toList());
     } catch (IOException ex) {
       ex.printStackTrace();
       throw new RuntimeException(ex);

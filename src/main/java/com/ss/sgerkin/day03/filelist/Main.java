@@ -29,6 +29,6 @@ public class Main {
     }
 
     var fileStructure = FileLister.listFiles(path);
-    System.out.println(fileStructure);
+    System.out.println(String.join(", ", fileStructure));
   }
 }
