@@ -1,5 +1,6 @@
 package com.ss.sgerkin.day03.charcount;
 
+import com.ss.sgerkin.day03.utils.ArgumentParser;
 import java.io.File;
 
 /**
@@ -24,7 +25,7 @@ public class Main {
       var commandArguments = ArgumentParser.parseArgs(args);
 
       var file = new File(commandArguments.getFilePath());
-      var chToFind = commandArguments.getCharacterToFind();
+      var chToFind = commandArguments.getStringToUse();
 
       var count = FileCharCounter.count(file, chToFind);
 
@@ -41,7 +42,7 @@ public class Main {
    * @param ch    the character counted.
    * @param count the number of occurrences.
    */
-  private static void printCount(Character ch, long count) {
+  private static void printCount(String ch, long count) {
     var verb = count > 1 ? "were" : "was";
     var noun = "occurrence" + (count > 1 ? "s" : "");
     var msg = String.format("There %s %d %s of '%s'", verb, count, noun, ch);

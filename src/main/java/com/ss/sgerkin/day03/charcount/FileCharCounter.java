@@ -8,13 +8,11 @@ import java.util.Scanner;
 public class FileCharCounter {
 
 
-  public static long count(File file, Character toFind) {
-    var ch = Character.toString(toFind);
-
+  public static long count(File file, String toFind) {
     try (var stream = new FileInputStream(file);
         var scanner = new Scanner(stream)) {
 
-      return scanner.findAll(ch)
+      return scanner.findAll(toFind)
           .parallel()
           .count();
 
