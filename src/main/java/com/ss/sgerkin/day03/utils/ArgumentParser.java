@@ -10,7 +10,7 @@ import java.util.function.Predicate;
 /**
  * Utility class for parsing command line arguments for {@link FileCharCounter}.
  *
- * @see #parseArgs(String[], Predicate)
+ * @see #parseArgs(Predicate, String...) 
  */
 public class ArgumentParser {
 
@@ -27,7 +27,7 @@ public class ArgumentParser {
    * @throws IllegalArgumentException if arguments are invalid.
    */
   public static CommandArguments parseArgs(String[] args) {
-    return parseArgs(args, arg -> arg.length() == 1);
+    return parseArgs( arg -> arg.length() == 1, args);
   }
 
   /**
@@ -41,7 +41,7 @@ public class ArgumentParser {
    * @return a {@link CommandArguments} object.
    * @throws IllegalArgumentException if arguments are invalid.
    */
-  public static CommandArguments parseArgs(String[] args, Predicate<String> secondaryArgTest) {
+  public static CommandArguments parseArgs(Predicate<String> secondaryArgTest, String... args) {
     var exceptions = validate(args, secondaryArgTest);
 
     if (exceptions.size() != 0) {
