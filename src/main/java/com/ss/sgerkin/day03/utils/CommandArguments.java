@@ -30,4 +30,28 @@ public class CommandArguments {
   public String getStringToUse() {
     return stringToUse;
   }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+
+    CommandArguments that = (CommandArguments) o;
+
+    if (!getFilePath().equals(that.getFilePath())) {
+      return false;
+    }
+    return getStringToUse().equals(that.getStringToUse());
+  }
+
+  @Override
+  public int hashCode() {
+    int result = getFilePath().hashCode();
+    result = 31 * result + getStringToUse().hashCode();
+    return result;
+  }
 }
