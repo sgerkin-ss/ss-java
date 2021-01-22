@@ -1,5 +1,8 @@
 package com.ss.sgerkin.day02.shape;
 
+/**
+ * Demonstration driver for {@link Shape} implementations.
+ */
 public class Main {
 
   public static void main(String[] args) {

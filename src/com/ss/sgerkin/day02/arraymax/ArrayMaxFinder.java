@@ -2,8 +2,16 @@ package com.ss.sgerkin.day02.arraymax;
 
 import java.util.Random;
 
+/**
+ * Class to find the maximum value and indices of a 2D array.
+ */
 public class ArrayMaxFinder {
 
+  /**
+   * Demonstration driver.
+   *
+   * @param args Unused.
+   */
   public static void main(String[] args) {
     var finder = new ArrayMaxFinder();
     var demoArr = createDemoArray(20, 20);
@@ -11,6 +19,13 @@ public class ArrayMaxFinder {
     System.out.println(result.toString());
   }
 
+  /**
+   * Helper function to create a demonstration array.
+   *
+   * @param sizeX Size of the outer array.
+   * @param sizeY Size of the inner array(s).
+   * @return a 2D array of random integer values.
+   */
   private static int[][] createDemoArray(int sizeX, int sizeY) {
     var random = new Random();
 
@@ -27,6 +42,12 @@ public class ArrayMaxFinder {
     return arr;
   }
 
+  /**
+   * Finds the maximum integer value of a 2D array and the row/col indices.
+   *
+   * @param arr the array to search.
+   * @return a {@link MaxResult} object containing the result.
+   */
   public MaxResult findMax(int[][] arr) {
     var max = Integer.MIN_VALUE;
     var rowIndex = -1;
@@ -45,7 +66,9 @@ public class ArrayMaxFinder {
     return new MaxResult(max, rowIndex, colIndex);
   }
 
-
+  /**
+   * Utility helper class that stores a value and the indices of the value in a 2D array.
+   */
   public static class MaxResult {
 
     final int value;
