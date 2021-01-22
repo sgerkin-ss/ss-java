@@ -2,7 +2,7 @@ package com.ss.sgerkin.day03.utils;
 
 /**
  * A POJO for storing command line arguments for {@link com.ss.sgerkin.day03.charcount.FileCharCounter}
- * and {@link com.ss.sgerkin.day03.textappend.FileAppender}.
+ * and {@link com.ss.sgerkin.day03.fileappender.FileAppender}.
  * <p>
  * Object properties are immutable and a new object should be created rather than mutated as
  * necessary.

@@ -1,12 +1,9 @@
 package com.ss.sgerkin.day03.charcount;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import com.ss.sgerkin.day03.TestUtils;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintStream;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -16,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 class MainTest {
 
-  static final String TEMP_PATH = "/temp/test.txt";
+  static final String TEMP_PATH = TestUtils.TEMP_PATH;
   static final ByteArrayOutputStream stdout = new ByteArrayOutputStream();
   static final ByteArrayOutputStream stderr = new ByteArrayOutputStream();
 
@@ -37,19 +34,12 @@ class MainTest {
     stdout.reset();
     stderr.reset();
 
-    var file = new File(TEMP_PATH);
-    try (var writer = new FileWriter(file)) {
-      writer.write("The quick red fox jumped over the lazy brown dog.");
-    } catch (IOException ex) {
-      ex.printStackTrace();
-      throw new RuntimeException(ex);
-    }
+    TestUtils.writeFile();
   }
 
   @AfterEach
-  private void afterEach() {
-    var file = new File(TEMP_PATH);
-    file.delete();
+  void afterEach() {
+    TestUtils.deleteFile();
   }
 
   @Test
@@ -76,21 +66,4 @@ class MainTest {
     assertEquals(expected, actual);
   }
 
-  @Test
-  void testInvalidPathThrowsException() {
-    assertThrows(RuntimeException.class, () -> Main.main(new String[]{" ", "a"}));
-    assertThrows(RuntimeException.class,
-                 () -> Main.main(new String[]{"japwoeigjapogijoijaweof", "a"}));
-  }
-
-  @Test
-  void testInvalidArgLengthThrowsException() {
-    assertThrows(RuntimeException.class, () -> Main.main(null));
-    assertThrows(RuntimeException.class, () -> Main.main(new String[]{TEMP_PATH}));
-  }
-
-  @Test
-  void testInvalidCharThrowsException() {
-    assertThrows(RuntimeException.class, () -> Main.main(new String[]{TEMP_PATH, "ah"}));
-  }
 }
