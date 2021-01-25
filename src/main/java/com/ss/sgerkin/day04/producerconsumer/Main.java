@@ -4,7 +4,7 @@ import java.util.concurrent.Executors;
 
 public class Main {
 
-  private static final int THREADS = 2;
+  private static final int THREADS = 10;
 
   public static void main(String[] args) throws InterruptedException {
     var buffer = new Buffer(THREADS / 2);

@@ -14,6 +14,7 @@ public class Buffer {
 
   public synchronized void put(int value) throws InterruptedException {
     if (isFull()) {
+      System.out.println("Buffer is full. Waiting...");
       wait(1000L);
     }
     buffer.add(value);
@@ -23,6 +24,7 @@ public class Buffer {
 
   public synchronized Integer take() throws InterruptedException {
     if (isEmpty()) {
+      System.out.println("Buffer is empty. Waiting...");
       wait(1000L);
     }
     var result = buffer.remove();

@@ -11,6 +11,7 @@ public class Consumer implements Runnable {
   public void consume() throws InterruptedException {
     var consumed = buffer.take();
     System.out.printf("Consume: %d.\n", consumed);
+    Thread.sleep(750L);
   }
 
   @Override

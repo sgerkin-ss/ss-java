@@ -15,6 +15,7 @@ public class Producer implements Runnable {
     var value = Math.abs(random.nextInt(500));
     System.out.printf("Produce: %d.\n", value);
     buffer.put(value);
+    Thread.sleep(500L);
   }
 
   @Override
