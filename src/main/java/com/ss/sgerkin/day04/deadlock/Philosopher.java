@@ -46,7 +46,9 @@ public class Philosopher implements Runnable {
    * is available.
    */
   public void pickUpLeftFork() {
+    System.out.printf("%s reaches for the left fork.\n", name);
     while (!leftFork.pickUp(this)) {
+      System.out.printf("%s is waiting for the left fork.\n", name);
       leftFork.pickUp(this);
     }
 
@@ -58,7 +60,9 @@ public class Philosopher implements Runnable {
    * is available.
    */
   public void pickUpRightFork() {
-    while (!rightFork.pickUp(this)) {
+    System.out.printf("%s reaches for the right fork.\n", name);
+    while (!leftFork.pickUp(this)) {
+      System.out.printf("%s is waiting for the right fork.\n", name);
       rightFork.pickUp(this);
     }
 

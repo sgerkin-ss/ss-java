@@ -35,13 +35,13 @@ public class Main {
 
     for (int i = 0; i < forks.size(); i++) {
       var leftFork = forks.get(i);
-      var rightFork = forks.get(i % 5);
+      var rightFork = forks.get((i + 1) % forks.size());
       var name = philosopherNames.get(i);
       var philosopher = new Philosopher(name, leftFork, rightFork);
       philosophers.add(philosopher);
     }
 
-    philosophers.forEach(Philosopher::run);
+    philosophers.forEach(philosopher -> new Thread(philosopher).start());
   }
 
 
