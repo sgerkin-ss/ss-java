@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 public class LineTest {
 
@@ -139,6 +140,22 @@ public class LineTest {
     var line1 = new Line(0, 0, 3, 4);
     var line2 = new Line(10, 10, 9, 9);
     assertFalse(line1.isParallel(line2));
+  }
+
+  @Test
+  void testIsParallelReturnsFalseForVerySmallDifference() {
+    var mockLine = Mockito.mock(Line.class);
+    var realLine = new Line(0.0,0.0,4.0,4.0);
+    Mockito.when(mockLine.getSlope()).thenReturn(1.000100001);
+    assertFalse(realLine.isParallel(mockLine));
+  }
+
+  @Test
+  void testIsParallelReturnsTrueForValueWithinRoundingError() {
+    var mockLine = Mockito.mock(Line.class);
+    var realLine = new Line(0.0, 0.0, 4.0, 4.0);
+    Mockito.when(mockLine.getSlope()).thenReturn(1.00009);
+    assertTrue(realLine.isParallel(mockLine));
   }
 
 }

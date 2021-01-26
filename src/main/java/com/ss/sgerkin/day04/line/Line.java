@@ -27,6 +27,8 @@ public class Line {
   }
 
   public boolean isParallel(Line other) {
-    return this.getSlope() == other.getSlope();
+    var thisSlope = this.getSlope();
+    var thatSlope = other.getSlope();
+    return Math.abs(thisSlope - thatSlope) < 0.0001;
   }
 }
