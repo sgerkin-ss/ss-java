@@ -1,4 +1,4 @@
-package com.ss.sgerkin.day05;
+package com.ss.sgerkin.day05.lambdas;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -28,7 +28,7 @@ public class BasicLambdasTest {
   /*
     sortByLength
    */
-  
+
   @Test
   void test_sortByLength_ReturnsSameListIfAlreadySortedByLength() {
     var expected = List.of("a", "bb", "ccc", "dddd");
@@ -88,7 +88,7 @@ public class BasicLambdasTest {
   /*
     shortByLengthReversed
    */
-  
+
   @Test
   void test_sortByLength_ReversedReturnsSameListIfAlreadySortedByLengthReversed() {
     var expected = List.of("dddd", "ccc", "bb", "a");
@@ -148,7 +148,7 @@ public class BasicLambdasTest {
   /*
     sortByFirstCharacter
    */
-  
+
   @Test
   void test_sortByFirstCharacter_DoesNotThrowExceptionOnEmptyString() {
     var input = List.of("");
@@ -301,7 +301,7 @@ public class BasicLambdasTest {
   /*
     filterStartsWithLowercaseAAndIs3Letters
    */
-  
+
   @Test
   void test_filterStartsWithLowercaseAAndIs3Letters_ReturnsEmptyListOnEmptyInput() {
     var expected = new ArrayList<String>();

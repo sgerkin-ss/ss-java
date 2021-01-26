@@ -1,4 +1,4 @@
-package com.ss.sgerkin.day05;
+package com.ss.sgerkin.day05.lambdas;
 
 import java.util.Comparator;
 import java.util.List;
