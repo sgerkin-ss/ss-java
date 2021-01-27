@@ -92,7 +92,7 @@ public class BasicLambdasTest {
   @Test
   void test_sortByLengthReversed_ReturnsSameListIfAlreadySortedByLengthReversed() {
     var expected = List.of("dddd", "ccc", "bb", "a");
-    var actual = BasicLambdas.shortByLengthReversed(expected);
+    var actual = BasicLambdas.sortByLengthReversed(expected);
     assertEquals(expected, actual);
 
     var reversed = List.of("a", "bb", "ccc", "dddd");
@@ -103,7 +103,7 @@ public class BasicLambdasTest {
   void test_sortByLengthReversed_ReturnsExpectedResult() {
     var input = List.of("a", "bb", "ccc", "dddd");
     var expected = List.of("dddd", "ccc", "bb", "a");
-    var actual = BasicLambdas.shortByLengthReversed(input);
+    var actual = BasicLambdas.sortByLengthReversed(input);
 
     assertEquals(expected, actual);
     assertNotEquals(input, actual);
@@ -113,7 +113,7 @@ public class BasicLambdasTest {
   void test_sortByLengthReversed_ReturnsEmptyStringsAsLastItems() {
     var input = List.of("a", "", "bb");
     var expected = List.of("bb", "a", "");
-    var actual = BasicLambdas.shortByLengthReversed(input);
+    var actual = BasicLambdas.sortByLengthReversed(input);
 
     assertEquals(expected, actual);
   }
@@ -122,7 +122,7 @@ public class BasicLambdasTest {
   void test_sortByLengthReversed_SortsCorrectlyGivenMultipleStringsOfSameLength() {
     var input = List.of("a", "b", "cc", "dd", "eee", "f", "gg", "hhh");
 
-    var actual = BasicLambdas.shortByLengthReversed(input);
+    var actual = BasicLambdas.sortByLengthReversed(input);
 
     // first 2 should be length 3
     assertEquals(3, actual.get(0).length());

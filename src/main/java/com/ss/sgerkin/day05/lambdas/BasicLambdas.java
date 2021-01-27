@@ -27,7 +27,7 @@ public class BasicLambdas {
    * @param list a list of strings to sort.
    * @return a new sorted list.
    */
-  public static List<String> shortByLengthReversed(List<String> list) {
+  public static List<String> sortByLengthReversed(List<String> list) {
     return list.stream()
         .sorted(Comparator.comparingInt(item -> item.length() * -1))
         .collect(Collectors.toList());
