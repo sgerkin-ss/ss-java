@@ -17,6 +17,11 @@ public class RecursionEx {
    * <p>
    * Constraint: If the list contains a run of consecutive same numbers, all the numbers from this
    * run must be used to check for summation. No other summation is valid.
+   * <p>
+   * TODO: As it stands, this has undefined behavior if there are multiple runs of different (or
+   *  possibly the same) numbers, eg [1,1,2,3,3] and will behave unpredictably. This should be
+   *  handled by either rejecting ALL lists with multiple runs or checking if any one run will sum to
+   *  the target.
    *
    * @param list   a list of integers to check.
    * @param target the target we want to find from the list item summations.
