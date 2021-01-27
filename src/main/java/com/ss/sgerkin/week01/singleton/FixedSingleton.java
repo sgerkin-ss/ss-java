@@ -4,6 +4,13 @@ import java.math.BigDecimal;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * This singleton has been "fixed" so as to compile and act correctly. That being said, there are
+ * additional changes that can be made to improve upon the functionality considerably. For example,
+ * ideally we should be injecting the database details rather than hard coding them. Additionally,
+ * refactoring to use a connection pool, rather than opening a new connection for each query, may
+ * significantly improve performance.
+ */
 public class FixedSingleton {
 
   private static final String DATABASE_CONN = "url of database";
