@@ -1,4 +1,4 @@
-package com.ss.sgerkin.week01.one;
+package com.ss.sgerkin.week01.lambda;
 
 import java.util.Arrays;
 import java.util.Map;

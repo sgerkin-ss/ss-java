@@ -1,4 +1,4 @@
-package com.ss.sgerkin.week01.six;
+package com.ss.sgerkin.week01.singleton;
 
 import java.math.BigDecimal;
 import java.sql.DriverManager;

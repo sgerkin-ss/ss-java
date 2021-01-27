@@ -1,4 +1,4 @@
-package com.ss.sgerkin.week01.one;
+package com.ss.sgerkin.week01.lambda;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
